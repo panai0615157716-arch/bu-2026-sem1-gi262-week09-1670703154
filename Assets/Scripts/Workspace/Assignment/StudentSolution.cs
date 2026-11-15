@@ -15,12 +15,32 @@ namespace Assignment
 
         public (int Count, int Popped, int Peek, int CountAfterPeek) LCT01_StackSyntax()
         {
-            throw new NotImplementedException();
+            Stack<int> stack = new Stack<int>();
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+
+            int count = stack.Count;
+            int popped = stack.Pop();
+            int peek = stack.Peek();
+            int countAfterPeek = stack.Count;
+
+            return (count, popped, peek, countAfterPeek);
         }
 
         public (int Count, int Dequeued, int Peek, int CountAfterPeek) LCT02_QueueSyntax()
         {
-            throw new NotImplementedException();
+            Queue<int> queue = new Queue<int>();
+            queue.Enqueue(1);
+            queue.Enqueue(2);
+            queue.Enqueue(3);
+
+            int count = queue.Count;
+            int dequeued = queue.Dequeue();
+            int peek = queue.Peek();
+            int countAfterPeek = queue.Count;
+
+            return (count, dequeued, peek, countAfterPeek);
         }
 
         public string[] LCT03_ActionStack()
@@ -28,7 +48,21 @@ namespace Assignment
             Action action1 = new Action { Name = "Action 1" };
             Action action2 = new Action { Name = "Action 2" };
             Action action3 = new Action { Name = "Action 3" };
-            throw new NotImplementedException();
+
+            Stack<Action> stack = new Stack<Action>();
+            stack.Push(action1);
+            stack.Push(action2);
+            stack.Push(action3);
+
+            int c = stack.Count;
+            List<string> actions = new List<string>();
+            for (int i = 0; i < c; i++)
+            {
+                var action = stack.Pop();
+                actions.Add(action.Name);
+            }
+
+            return actions.ToArray();
         }
 
         public string[] LCT04_ActionQueue()
@@ -36,7 +70,21 @@ namespace Assignment
             Action action1 = new Action { Name = "Action 1" };
             Action action2 = new Action { Name = "Action 2" };
             Action action3 = new Action { Name = "Action 3" };
-            throw new NotImplementedException();
+
+            Queue<Action> queue = new();
+            queue.Enqueue(action1);
+            queue.Enqueue(action2);
+            queue.Enqueue(action3);
+
+            int c = queue.Count;
+            List<string> actions = new List<string>();
+            for (int i = 0; i < c; i++)
+            {
+                var a = queue.Dequeue();
+                actions.Add(a.Name);
+            }
+
+            return actions.ToArray();
         }
 
         #endregion
@@ -45,12 +93,36 @@ namespace Assignment
 
         public string ASN01_ReverseString(string str)
         {
-            throw new NotImplementedException();
+            Stack<char> stack = new();
+            foreach (char c in str)
+            {
+                stack.Push(c);
+            }
+
+            string reverseString = "";
+            while (stack.Count > 0)
+            {
+                reverseString += stack.Pop();
+            }
+
+            return reverseString;
         }
 
         public bool ASN02_StackPalindrome(string str)
         {
-            throw new NotImplementedException();
+            Stack<char> stack = new();
+            foreach (char c in str)
+            {
+                stack.Push(c);
+            }
+
+            string reverseString = "";
+            while (stack.Count > 0)
+            {
+                reverseString += stack.Pop();
+            }
+
+            return str == reverseString;
         }
 
         #endregion
